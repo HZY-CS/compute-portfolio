@@ -17,3 +17,73 @@ git push
 第4步：检查成果（可选）
 git log --oneline
 作用：按行显示你所有的存档记录（哈希值 + 备注），极其清爽。
+
+下面这份精简版 Git 操作指南，直接复制到你的 `git_instruction.md` 即可。
+
+---
+
+# Git 常用操作精简指南
+
+## 一、核心概念
+- **本地仓库**：电脑上的 `.git` 隐藏文件夹，存所有历史版本。
+- **远程仓库**：GitHub 上的仓库，用于备份和协作。
+- **工作区 → 暂存区 → 本地仓库 → 远程仓库**：`add` → `commit` → `push`。
+
+## 二、日常四步（最常用）
+```bash
+git status          # 查看当前改动状态
+git add .           # 把所有改动加入暂存区
+git commit -m "备注" # 打包成一个版本存档
+git push            # 推送到 GitHub
+```
+
+## 三、查看历史
+```bash
+git log --oneline -n 5   # 看最近5条，一行一条（清爽）
+git log                  # 看完整历史（按 q 退出）
+git diff                 # 看未暂存的具体改动
+```
+
+## 四、远程同步
+```bash
+git pull origin main     # 把云端最新代码拉到本地（每次开工前先做）
+git push                 # 把本地新版本推到云端
+git remote -v            # 查看绑定的远程地址
+```
+
+## 五、后悔药
+```bash
+git restore 文件名        # 放弃某个文件的未提交修改
+git reset --soft HEAD~1  # 撤销最近一次 commit，保留代码
+git reset --hard HEAD    # 抹掉所有未提交修改（慎用！）
+```
+
+## 六、临时保存（stash）
+```bash
+git stash        # 把没写完的改动临时“塞进抽屉”
+git stash pop    # 把抽屉里的改动取回来
+```
+
+## 七、分支（以后再用）
+```bash
+git branch               # 查看分支
+git checkout -b dev      # 创建并切换到 dev 分支
+git checkout main        # 切回 main 分支
+git merge dev            # 把 dev 合并到当前分支
+```
+
+## 八、避坑指南
+- **`git pull` 后冲突**：手动编辑冲突文件，删掉 `<<<<<<<` `=======` `>>>>>>>` 标记，然后 `git add .` + `git commit` + `git push`。
+- **不小心进入 Vim 编辑器**：按 `Esc`，输入 `:wq`，回车即可保存退出。
+- **`.gitignore`**：在仓库根目录新建此文件，写入要忽略的文件名（如 `*.exe`、`__pycache__/`），避免垃圾文件被提交。
+- **不要提交编译产物、大文件、密码**。
+
+## 九、一句话原则
+- 每次写代码前：`git pull`
+- 写完一块：`git add .` → `git commit -m "说明"`
+- 每天结束：`git push`
+- 看到 `working tree clean` 就说明所有改动都存好了。
+
+---
+
+这份指南你可以随时补充，以后遇到新坑就加一条。现在快 23:30 了，复制保存到你的 `compute-portfolio` 文件夹里，然后 `git add .` → `git commit -m "docs: 添加Git精简指南"` → `git push`，最后去 AutoDL 关机睡觉！明天见！
