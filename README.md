@@ -5,3 +5,4 @@
 ## 📁 项目目录
 - [CUDA Vector Add 控制变量实验报告](./vector_add_report.md)
 - [Git 操作指南](./the_operation_of_git.txt)
+- [CUDA Shared Memory in stencil 性能对比实验报告](./shared_memory_report.md)
