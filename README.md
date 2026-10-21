@@ -3,6 +3,7 @@
 欢迎来到我的算力与CUDA学习仓库。以下是我的工程实践记录：
 
 ## 📁 项目目录
+- [SGEMM 矩阵乘法的深度优化](./SGEMM/SGEMM-Total.md)
 - [CUDA Vector Add 控制变量实验报告](./vector_add_report.md)
-- [Git 操作指南](./the_operation_of_git.txt)
 - [CUDA Shared Memory in stencil 性能对比实验报告](./shared_memory_report.md)
+- [Git 操作指南](./the_operation_of_git.txt)
